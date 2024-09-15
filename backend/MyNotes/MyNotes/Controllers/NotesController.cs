@@ -9,13 +9,13 @@ namespace MyNotes.Controllers
         [HttpPost]
         public async Task<IActionResult> Create()
         {
-            return View();
+            return Ok();
         }
 
         [HttpGet]
         public async Task<IActionResult> Get()
         {
-            return View();
+            return Ok();
         }
     }
 }
