@@ -8,7 +8,8 @@ import { fetchNotes } from './services/notes';
 function App() {
   useEffect(() => {
     const fetchData = async () => {
-      await fetchNotes();
+      let notes = await fetchNotes();
+      console.log(notes);
     }
 
     fetchData();
