@@ -1,5 +1,5 @@
 ﻿namespace MyNotes.Contracts
 {
-    public record GetNotesResponse(List<NoteDto> Notes);
+    public record GetNotesResponse(List<NoteDto> notes);
 }
 

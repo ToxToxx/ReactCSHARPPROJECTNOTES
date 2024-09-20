@@ -25,11 +25,15 @@ function App() {
       </div>
 
       <ul className='flex flex-col gap-5 w-1/2'>
-      {notes.map(n => {
-        <li>
-        <Note/>
+      {notes.map((n) => (
+        <li key={n.id}>
+        <Note 
+          title={n.title} 
+          description={n.description} 
+          createdAt={n.createdAt}
+        />
       </li>
-      })}
+      ))}
       </ul>
 
   </section>)
