@@ -1,17 +1,17 @@
 import { Card, CardBody, CardFooter, CardHeader, Divider, Heading, Text } from '@chakra-ui/react';
 
-export default function Note(){
+export default function Note({title, description, createdAt}){
     return (
         <Card variant={"filled"}>
         <CardHeader>
-          <Heading size={"md"}> Заметка </Heading>
+          <Heading size={"md"}> {title} </Heading>
         </CardHeader>
         <Divider borderColor={"gray"}></Divider>
         <CardBody> 
-          <Text> Текст заметки </Text>
+          <Text> {description} </Text>
          </CardBody>
          <Divider borderColor={"gray"}></Divider>
-        <CardFooter> Дата создания </CardFooter>
+        <CardFooter> {createdAt} </CardFooter>
       </Card>
     );
 }

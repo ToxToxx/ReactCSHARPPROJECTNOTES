@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import './App.css'
 import CreateNoteForm from './components/CreateNoteForm';
 import Filters from './components/Filters';
@@ -6,10 +6,12 @@ import Note from './components/Note';
 import { fetchNotes } from './services/notes';
 
 function App() {
+  const [notes, setNotes] = useState([]);
+
   useEffect(() => {
     const fetchData = async () => {
       let notes = await fetchNotes();
-      console.log(notes);
+      setNotes(notes);
     }
 
     fetchData();
@@ -23,18 +25,11 @@ function App() {
       </div>
 
       <ul className='flex flex-col gap-5 w-1/2'>
+      {notes.map(n => {
         <li>
-          <Note/>
-        </li>
-        <li>
-          <Note/>
-        </li>
-        <li>
-          <Note/>
-        </li>
-        <li>
-          <Note/>
-        </li>
+        <Note/>
+      </li>
+      })}
       </ul>
 
   </section>)
