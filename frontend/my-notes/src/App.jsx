@@ -3,7 +3,7 @@ import './App.css'
 import CreateNoteForm from './components/CreateNoteForm';
 import Filters from './components/Filters';
 import Note from './components/Note';
-import { fetchNotes } from './services/notes';
+import { createNote, fetchNotes } from './services/notes';
 
 function App() {
   const [notes, setNotes] = useState([]);
@@ -22,10 +22,16 @@ function App() {
     fetchData();
   }, [filter])
 
+  const onCreate = async (note) => {
+      await createNote(note);
+      let notes = await fetchNotes(filter);
+      setNotes(notes);
+  };
+
   return (
   <section className='p-8 flex flex-row justify-start items-start gap-12'>
     <div className='flex flex-col w-1/3 gap-10'>
-      <CreateNoteForm />
+      <CreateNoteForm onCreate={onCreate} />
       <Filters filter={filter} setFilter={setFilter}/>
       </div>
 
