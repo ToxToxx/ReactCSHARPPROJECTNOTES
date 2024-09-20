@@ -13,7 +13,13 @@ export const fetchNotes = async (filter) => {
     } catch(e){
         console.error(e);
     }
-    
-    
+};
 
-}
+export const createNote = async (note) => {
+    try {
+        var response = await axios.post("http://localhost:5143/notes", note);
+        return response.status;
+    } catch(e){
+        console.error(e);
+    }
+};
