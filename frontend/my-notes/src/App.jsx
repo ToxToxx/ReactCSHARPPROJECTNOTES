@@ -7,10 +7,15 @@ import { fetchNotes } from './services/notes';
 
 function App() {
   const [notes, setNotes] = useState([]);
+  const [filter, setFilter] = useState({
+    search: "",
+    sortItem: "date",
+    sortOrder: "desc",
+  });
 
   useEffect(() => {
     const fetchData = async () => {
-      let notes = await fetchNotes();
+      let notes = await fetchNotes(filter);
       setNotes(notes);
     }
 
